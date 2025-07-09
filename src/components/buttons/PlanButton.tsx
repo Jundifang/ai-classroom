@@ -56,7 +56,8 @@ export function ResetButton() {
 export function SetButton() {
   const [showWarning, setShowWarning] = useState(false);
   const freeze = useMutation(api.testing.stop);
-  const wipeData = useAction(api.testing.clearTable);
+  // TODO
+  // const wipeData = useAction(api.testing.clearTable);
   const uploadPlan = useMutation(api.plans.addPlan);
   const unfreeze = useMutation(api.testing.resume);
 
@@ -66,7 +67,7 @@ export function SetButton() {
       await freeze();
 
       // 清空数据
-      await wipeData();
+      // await wipeData();
 
       // 上传新教案
       await uploadPlan({
