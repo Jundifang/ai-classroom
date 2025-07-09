@@ -6,6 +6,7 @@ import {
   internalMutation,
   mutation,
   query,
+  action,
 } from './_generated/server';
 import { v } from 'convex/values';
 import schema from './schema';
@@ -28,6 +29,12 @@ export const wipeAllTables = internalMutation({
       }
       await ctx.scheduler.runAfter(0, internal.testing.deletePage, { tableName, cursor: null });
     }
+  },
+});
+
+export const clearTable = action({
+  handler: async (ctx) => {
+    await ctx.runMutation(internal.testing.wipeAllTables);
   },
 });
 

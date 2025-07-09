@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Alex",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 3 },
+      { "aspect": "Abstract Thinking", "score": 2 },
+      { "aspect": "Logical Reasoning", "score": 4 },
+      { "aspect": "Analogy Association", "score": 1 },
+      { "aspect": "Spatial Imagination", "score": 5 }
+    ],
+    "lr": 2,
+    "ls": 0,
+    "qr": 1
+  },
+  {
+    "name": "Bella",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 5 },
+      { "aspect": "Abstract Thinking", "score": 1 },
+      { "aspect": "Logical Reasoning", "score": 3 },
+      { "aspect": "Analogy Association", "score": 4 },
+      { "aspect": "Spatial Imagination", "score": 2 }
+    ],
+    "lr": 1,
+    "ls": 1,
+    "qr": 3
+  },
+  {
+    "name": "Chris",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 2 },
+      { "aspect": "Abstract Thinking", "score": 4 },
+      { "aspect": "Logical Reasoning", "score": 1 },
+      { "aspect": "Analogy Association", "score": 5 },
+      { "aspect": "Spatial Imagination", "score": 3 }
+    ],
+    "lr": 3,
+    "ls": 0,
+    "qr": 2
+  },
+  {
+    "name": "Diana",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 1 },
+      { "aspect": "Abstract Thinking", "score": 5 },
+      { "aspect": "Logical Reasoning", "score": 2 },
+      { "aspect": "Analogy Association", "score": 3 },
+      { "aspect": "Spatial Imagination", "score": 4 }
+    ],
+    "lr": 2,
+    "ls": 1,
+    "qr": 1
+  },
+  {
+    "name": "Ethan",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 4 },
+      { "aspect": "Abstract Thinking", "score": 3 },
+      { "aspect": "Logical Reasoning", "score": 5 },
+      { "aspect": "Analogy Association", "score": 2 },
+      { "aspect": "Spatial Imagination", "score": 1 }
+    ],
+    "lr": 1,
+    "ls": 0,
+    "qr": 2
+  },
+  {
+    "name": "Fiona",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 3 },
+      { "aspect": "Abstract Thinking", "score": 2 },
+      { "aspect": "Logical Reasoning", "score": 1 },
+      { "aspect": "Analogy Association", "score": 4 },
+      { "aspect": "Spatial Imagination", "score": 5 }
+    ],
+    "lr": 3,
+    "ls": 1,
+    "qr": 3
+  },
+  {
+    "name": "George",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 1 },
+      { "aspect": "Abstract Thinking", "score": 3 },
+      { "aspect": "Logical Reasoning", "score": 5 },
+      { "aspect": "Analogy Association", "score": 2 },
+      { "aspect": "Spatial Imagination", "score": 4 }
+    ],
+    "lr": 2,
+    "ls": 0,
+    "qr": 1
+  },
+  {
+    "name": "Hannah",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 5 },
+      { "aspect": "Abstract Thinking", "score": 4 },
+      { "aspect": "Logical Reasoning", "score": 3 },
+      { "aspect": "Analogy Association", "score": 1 },
+      { "aspect": "Spatial Imagination", "score": 2 }
+    ],
+    "lr": 1,
+    "ls": 1,
+    "qr": 2
+  },
+  {
+    "name": "Ian",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 2 },
+      { "aspect": "Abstract Thinking", "score": 1 },
+      { "aspect": "Logical Reasoning", "score": 4 },
+      { "aspect": "Analogy Association", "score": 3 },
+      { "aspect": "Spatial Imagination", "score": 5 }
+    ],
+    "lr": 3,
+    "ls": 0,
+    "qr": 3
+  },
+  {
+    "name": "Julia",
+    "la": [
+      { "aspect": "Numerical Calculation", "score": 4 },
+      { "aspect": "Abstract Thinking", "score": 5 },
+      { "aspect": "Logical Reasoning", "score": 2 },
+      { "aspect": "Analogy Association", "score": 1 },
+      { "aspect": "Spatial Imagination", "score": 3 }
+    ],
+    "lr": 2,
+    "ls": 1,
+    "qr": 1
+  }
+]

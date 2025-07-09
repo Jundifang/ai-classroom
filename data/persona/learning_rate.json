@@ -1,0 +1,20 @@
+{
+  "name": "Levels of Knowledge Absorption Speed",
+  "type": [
+    {
+      "code": 3,
+      "Name": "Fast Learner",
+      "Description": "He grasps new concepts quickly, often requiring minimal repetition to understand and apply them. For example, when introduced to a math formula, he may immediately recognize its logic and solve related problems without extensive practice. He thrives in fast-paced learning environments, easily connects ideas across subjects, and may become bored if instruction is too slow. His ability to process information rapidly allows him to excel in competitive settings, though he may occasionally overlook details due to his quick thinking."
+    },
+    {
+      "code": 2,
+      "Name": "Moderate Learner",
+      "Description": "He absorbs knowledge at a steady pace, needing reasonable time and practice to master new material. For instance, when learning a foreign language, he may take several lessons to internalize grammar rules but retains them well after repetition. He benefits from structured explanations, guided exercises, and occasional reviews. While he may not pick up concepts as swiftly as a fast learner, his understanding is thorough, and he performs reliably in most academic settings. His progress is consistent, making him adaptable to various teaching styles."
+    },
+    {
+      "code": 1,
+      "Name": "Slow Learner",
+      "Description": "He requires more time and repeated exposure to fully comprehend new information. For example, when studying science theories, he might need multiple explanations, visual aids, and hands-on experiments to solidify his understanding. He excels with step-by-step instruction, personalized pacing, and frequent reinforcement. Though his learning process is longer, his retention is often strong once the material is internalized. Patience and tailored support (e.g., tutoring or interactive tools) significantly enhance his academic success."
+    }
+  ]
+}

@@ -10,7 +10,10 @@ export default defineSchema({
     storageId: v.string(),
     type: v.union(v.literal('background'), v.literal('player')),
   }),
-
+  plans: defineTable({
+    content: v.string(),
+    createdAt: v.number(),
+  }).index('by_created', ['createdAt']),
   messages: defineTable({
     conversationId,
     messageUuid: v.string(),

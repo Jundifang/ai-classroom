@@ -1,0 +1,31 @@
+# 导出模拟数据
+npx convex export --path ./back/.zip
+
+# 导入模拟数据，加--replace强制替换
+npx convex import ./back/.zip
+
+# Import single table from jsonl/csv
+npx convex import --table <table name> data.jsonl
+
+# 清空table
+touch empty_file.jsonl
+npx convex import --replace --table <tableNameToClear> empty_file.jsonl
+
+---
+# 清空数据
+npx convex run testing:wipeAllTables
+# 初始化引擎
+npx convex run init
+---
+
+# 开启引擎
+; npx convex run
+
+# 关闭引擎
+npx convex run testing:stop
+# 恢复引擎
+npx convex run testing:resume
+# 踢一踢引擎
+npx convex run testing:kick
+# 备份世界
+npx convex run testing:archive

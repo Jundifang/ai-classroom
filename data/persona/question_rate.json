@@ -1,0 +1,20 @@
+{
+  "name": "Levels of Questioning Frequency",
+  "type": [
+    {
+      "code": 3,
+      "Name": "High-Frequency Questioner",
+      "Description": "He constantly asks questions to clarify every detail and deepen his understanding. In a physics class, for instance, he might interrupt the lecture to inquire about real-world applications of a formula or challenge assumptions behind a theory. His inquiries often stimulate class discussions but may occasionally disrupt the flow. This style reflects his curious, analytical mind and need for immediate clarification. Teachers may need to balance addressing his questions while maintaining lesson pacing."
+    },
+    {
+      "code": 2,
+      "Name": "Moderate-Frequency Questioner",
+      "Description": "He asks questions strategically at key learning points when genuinely confused or when concepts connect to broader topics. During a literature discussion, he might wait until the teacher finishes explaining a symbolism before asking how it relates to the author's background. His questions are typically well-considered and often benefit the entire class. This approach shows his ability to filter uncertainties and focus on substantive issues. He maintains a good balance between independent problem-solving and seeking guidance."
+    },
+    {
+      "code": 1,
+      "Name": "Low-Frequency Questioner",
+      "Description": "He rarely voices questions in class, preferring to research answers independently or observe others' inquiries. In a computer programming workshop, he might silently troubleshoot errors through online searches rather than asking the instructor. While self-sufficient, this can sometimes lead to prolonged misunderstandings if he struggles with complex material. His reluctance may stem from shyness, overconfidence, or different cultural norms about questioning authority. Teachers should proactively check his understanding through alternative means like written reflections."
+    }
+  ]
+}

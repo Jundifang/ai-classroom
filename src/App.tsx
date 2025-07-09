@@ -1,9 +1,12 @@
 import Game from './components/Game.tsx';
 
 import { ToastContainer } from 'react-toastify';
-import a16zImg from '../assets/a16z.png';
-import convexImg from '../assets/convex.svg';
-import starImg from '../assets/star.svg';
+
+import { useEffect } from 'react';
+import { useQuery, useMutation } from 'convex/react';
+import { api } from '../convex/_generated/api';
+import { plan_used } from '../data/characters';
+
 import helpImg from '../assets/help.svg';
 // import { UserButton } from '@clerk/clerk-react';
 // import { Authenticated, Unauthenticated } from 'convex/react';
@@ -11,13 +14,25 @@ import helpImg from '../assets/help.svg';
 import { useState } from 'react';
 import ReactModal from 'react-modal';
 import MusicButton from './components/buttons/MusicButton.tsx';
+import { ResetButton, SetButton } from './components/buttons/PlanButton.tsx';
 import Button from './components/buttons/Button.tsx';
 import InteractButton from './components/buttons/InteractButton.tsx';
 import FreezeButton from './components/FreezeButton.tsx';
 import { MAX_HUMAN_PLAYERS } from '../convex/constants.ts';
 import PoweredByConvex from './components/PoweredByConvex.tsx';
 
+// 移除本地定义
+import { getPlan, setPlan } from './utils/show_plan.ts';
+// let show_plan = getPlan();
+
 export default function Home() {
+  const [show_plan, setShowPlan] = useState(getPlan());
+
+  useEffect(() => {
+    if (show_plan) {
+      setPlan(show_plan);
+    }
+  }, [show_plan]);
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between font-body game-background">
@@ -74,38 +89,45 @@ export default function Home() {
 
       <div className="w-full lg:h-screen min-h-screen relative isolate overflow-hidden lg:p-8 shadow-2xl flex flex-col justify-start">
         <h1 className="mx-auto text-4xl p-3 sm:text-8xl lg:text-9xl font-bold font-display leading-none tracking-wide game-title w-full text-left sm:text-center sm:w-auto">
-          AI Town
+          AI Classroom
         </h1>
 
         <div className="max-w-xs md:max-w-xl lg:max-w-none mx-auto my-4 text-center text-base sm:text-xl md:text-2xl text-white leading-tight shadow-solid">
-          A virtual town where AI characters live, chat and socialize.
+          A virtual classroom where AI characters take class and interact with each other
           {/* <Unauthenticated>
             <div className="my-1.5 sm:my-0" />
             Log in to join the town
             <br className="block sm:hidden" /> and the conversation!
           </Unauthenticated> */}
         </div>
+        <div className="flex gap-4 h-full min-h-[480px]">
+          <div className="flex-1 h-full" style={{ width: '80%' }}>
+            <Game />
+          </div>
 
-        <Game />
-
+          <div className="game-frame border-gray-200 flex flex-col">
+            <div className="bg-brown-800 w-full h-full flex flex-col p-3">
+              <h2 className="text-xl font-bold mb-4">Teaching Plan</h2>
+              <textarea
+                className="flex-1 border rounded-md p-2 mb-4 resize-none"
+                placeholder={show_plan}
+              />
+              <div className="flex justify-between gap-4 pointer-events-none">
+                <SetButton />
+                <ResetButton />
+              </div>
+            </div>
+          </div>
+        </div>
         <footer className="justify-end bottom-0 left-0 w-full flex items-center mt-4 gap-3 p-6 flex-wrap pointer-events-none">
           <div className="flex gap-4 flex-grow pointer-events-none">
             <FreezeButton />
             <MusicButton />
-            <Button href="https://github.com/a16z-infra/ai-town" imgUrl={starImg}>
-              Star
-            </Button>
             <InteractButton />
             <Button imgUrl={helpImg} onClick={() => setHelpModalOpen(true)}>
               Help
             </Button>
           </div>
-          <a href="https://a16z.com">
-            <img className="w-8 h-8 pointer-events-auto" src={a16zImg} alt="a16z" />
-          </a>
-          <a href="https://convex.dev/c/ai-town">
-            <img className="w-20 h-8 pointer-events-auto" src={convexImg} alt="Convex" />
-          </a>
         </footer>
         <ToastContainer position="bottom-right" autoClose={2000} closeOnClick theme="dark" />
       </div>

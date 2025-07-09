@@ -1,0 +1,15 @@
+{
+  "name": "Learning Styles",
+  "type": [
+    {
+      "code": 0,
+      "Name": "Fast Learner",
+      "Description": "He learns most effectively by listening to the teacher’s explanations, lectures, or audio materials. He focuses on verbal instructions and structured presentations to absorb information. For example, he may prefer traditional classroom settings where the teacher delivers content in a clear sequence, or he might benefit from recorded lectures and podcasts. He often takes detailed notes, replays explanations to reinforce his understanding, and performs well in exams that test listening comprehension. He typically thrives in quiet environments where he can concentrate without distractions."
+    },
+    {
+      "code": 1,
+      "Name": "Interactive-Based Learner",
+      "Description": "He learns best through discussions, group activities, and peer interactions. He gains deeper understanding by asking questions, debating ideas, and explaining concepts to others. For example, he may prefer study groups, classroom debates, or role-playing exercises where he can actively engage with classmates. He struggles with passive listening and needs social stimulation to retain information. He benefits from collaborative projects, brainstorming sessions, and real-time feedback from peers. His learning improves when he verbalizes his thoughts, challenges assumptions, and refines his knowledge through conversation."
+    }
+  ]
+}

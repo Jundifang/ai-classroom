@@ -1,0 +1,28 @@
+{
+  "name": "Lucky",
+  "la": [
+    {
+      "aspect": "Numerical Calculation",
+      "score": 2
+    },
+    {
+      "aspect": "Abstract Thinking",
+      "score": 1
+    },
+    {
+      "aspect": "Logical Reasoning",
+      "score": 4
+    },
+    {
+      "aspect": "Analogy Association",
+      "score": 5
+    },
+    {
+      "aspect": "Spatial Imagination",
+      "score": 3
+    }
+  ],
+  "lr": 1,
+  "ls": 2,
+  "qr": 2
+}
