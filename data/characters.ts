@@ -10,13 +10,15 @@ import { data as f9SpritesheetData } from './spritesheets/f9';
 import { data as f10SpritesheetData } from './spritesheets/f10';
 import { data as f11SpritesheetData } from './spritesheets/f11';
 
-import { useTeachingPlan } from '../src/components/TeachingPlanProvider';
+import { useTeachingPlan } from './TeachingPlanProvider';
 
 import formatDataArray from './persona/format.json';
 import learningAbility from './persona/learning_ability.json';
 import learningRate from './persona/learning_rate.json';
 import learningStyle from './persona/learning_style.json';
 import questionRate from './persona/question_rate.json';
+import { PluginManager } from 'pixi-viewport';
+// import { query } from '../convex/_generated/server';
 
 // 新增类型定义
 
@@ -102,19 +104,22 @@ function mapCharacterData(
 }
 // 修复后的Descriptions导出
 const characterDescriptions = formatDataArray
-  .slice(0, 2)
+  .slice(0, 5)
   .map((formatData, index) =>
     mapCharacterData(formatData, learningAbility, learningRate, learningStyle, questionRate, index),
   );
 
-export const Teacher_Name = 'Mr. Frank';
+export const Teacher_Name = 'Prof. Frank';
 const init_plan =
   'Teaching Plan —— algebraic equation\n# Part 1: Explanation of knowledge points\nAn algebraic equation is a mathematical equation containing unknown numbers, and its general form is ax+b=c. Among them, a, b, c are known numbers, and x is an unknown number. The process of solving an algebraic equation is to find the value of x that makes the equation true.\n\nThe basic methods for solving algebraic equations are as follows:\n- Moving term method: According to the properties of the equation, move the unknown number to one side and the known number to the other side until the unknown number is independent.\n- Equivalent deformation method: Through equivalent deformation of the equation, the equation is reduced to a simpler form, and finally the value of the unknown is obtained.\n- Substitution method: Substituting known numbers into the equation to find the value of the unknown.\n- Elimination method: For a system of equations containing two unknowns, one of the unknowns is eliminated through appropriate deformation, thereby transforming it into an equation containing only one unknown.\n- Factoring: Factor the equation to find the value of the unknown.\n\nIn the process of solving algebraic equations, you need to pay attention to maintaining a balance on both sides of the equation and ensuring that the transformations at each step are equivalent to avoid introducing new errors.\n\n# Part 2: Explanation of exercise\nQuestion 1:\n    A brownie recipe is asking for 350 grams of sugar, and a pound cake recipe requires 270 more grams of sugar than a brownie recipe. How many grams of sugar are needed for the pound cake? \nSolution: \n    Step 1: Identify the amount of sugar needed for the brownie recipe, which is 350 grams. \n    Step 2: Understand that the pound cake recipe requires 270 more grams of sugar than the brownie recipe. \n    Step 3: Add the additional 270 grams of sugar to the 350 grams required for the brownie recipe. \n    Step 4: The total amount of sugar needed for the pound cake recipe is 350 grams + 270 grams = 620 grams.';
-let plan_used;
+// let teachingPlan: string;
+
 // 在组件中使用
 const CharacterDescriptions = () => {
+  const teachingPlan = useTeachingPlan();
+
   // const teachingPlan = useTeachingPlan();
-  const teachingPlan = init_plan;
+  // const teachingPlan = init_plan;
   characterDescriptions.push({
     name: Teacher_Name,
     character: 'f11',
@@ -122,10 +127,8 @@ const CharacterDescriptions = () => {
       "you are a math teacher, here are your teaching rules. Strictly Follow the Teaching Plan:As a math teacher, I will strictly adhere to the pre-designed lesson plan to ensure a clear and logical teaching process. The plan includes teaching objectives, key concepts, example explanations, and classroom exercises, guaranteeing systematic and coherent knowledge delivery. During the lesson, I may adjust explanations (e.g., using analogies or modifying example sequences) based on students' comprehension, but I will not deviate from the core framework of the plan, ensuring an efficient and well-structured class that achieves its objectives.\nAnswer Every Question:In class, I will actively encourage students to ask questions and ensure every inquiry receives a prompt and accurate response. Simple questions will be answered immediately, while complex ones will be briefly addressed with a promise of detailed discussion after class if time is limited—never dismissed. Regardless of difficulty, I will listen patiently, respect students' thinking, and foster an open and inclusive learning environment where everyone feels confident to ask and explore.",
     plan: `you have to teach students(all people except yourself),here is your teaching plan:\n\n${teachingPlan}`,
   });
-  plan_used = teachingPlan;
   return characterDescriptions;
 };
-export { plan_used };
 export const Descriptions = CharacterDescriptions();
 
 // */

@@ -6,6 +6,7 @@ import {
   internalMutation,
   mutation,
   query,
+  // action
 } from './_generated/server';
 import { v } from 'convex/values';
 import schema from './schema';
@@ -16,7 +17,7 @@ import { fetchEmbedding } from './util/llm';
 import { chatCompletion } from './util/llm';
 import { startConversationMessage } from './agent/conversation';
 import { GameId } from './aiTown/ids';
-
+// TODO
 // Clear all of the tables except for the embeddings cache.
 const excludedTables: Array<TableNames> = ['embeddingsCache'];
 
@@ -30,6 +31,12 @@ export const wipeAllTables = internalMutation({
     }
   },
 });
+
+// export const clearTable = action({
+//   handler: async (ctx) => {
+//     await ctx.runMutation(internal.testing.wipeAllTables);
+//   },
+// });
 
 export const deletePage = internalMutation({
   args: {

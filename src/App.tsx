@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
 import { useQuery, useMutation } from 'convex/react';
 import { api } from '../convex/_generated/api';
-import { plan_used } from '../data/characters';
 
 import helpImg from '../assets/help.svg';
 // import { UserButton } from '@clerk/clerk-react';
@@ -21,18 +20,18 @@ import FreezeButton from './components/FreezeButton.tsx';
 import { MAX_HUMAN_PLAYERS } from '../convex/constants.ts';
 import PoweredByConvex from './components/PoweredByConvex.tsx';
 
-// 移除本地定义
-import { getPlan, setPlan } from './utils/show_plan.ts';
+import { getTeachingPlan } from '../data/TeachingPlanProvider.tsx';
+
+import { usePlanState } from './utils/show_plan';
 // let show_plan = getPlan();
 
 export default function Home() {
-  const [show_plan, setShowPlan] = useState(getPlan());
-
-  useEffect(() => {
-    if (show_plan) {
-      setPlan(show_plan);
-    }
-  }, [show_plan]);
+  const { getPlan, setPlan } = usePlanState();
+  // const [show_plan, setShowPlan] = useState(getPlan());
+  const plan = getTeachingPlan();
+  // useEffect(() => {
+  //   setShowPlan(getPlan());
+  // }, [getPlan]);
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between font-body game-background">
@@ -108,10 +107,21 @@ export default function Home() {
           <div className="game-frame border-gray-200 flex flex-col">
             <div className="bg-brown-800 w-full h-full flex flex-col p-3">
               <h2 className="text-xl font-bold mb-4">Teaching Plan</h2>
+
               <textarea
-                className="flex-1 border rounded-md p-2 mb-4 resize-none"
-                placeholder={show_plan}
+                className="flex-1 border text-black rounded-md p-2 mb-4 resize-none"
+                placeholder="Please enter your teaching plan here..."
+                value={getPlan()}
+                onChange={(e) => setPlan(e.target.value)} // 保持输入响应
+                onBlur={(e) => {
+                  const newValue = e.target.value;
+                  setPlan(newValue); // 假设 setPlan 是更新 teachingPlan 的方法
+                  // 调试时使用确定的值
+                  console.log('Saved value:', newValue);
+                }}
+                readOnly={false} // 显式设置为可编辑
               />
+
               <div className="flex justify-between gap-4 pointer-events-none">
                 <SetButton />
                 <ResetButton />
@@ -124,7 +134,13 @@ export default function Home() {
             <FreezeButton />
             <MusicButton />
             <InteractButton />
-            <Button imgUrl={helpImg} onClick={() => setHelpModalOpen(true)}>
+            <Button
+              imgUrl={helpImg}
+              onClick={() => {
+                setHelpModalOpen(true);
+                console.log('Current teachingPlan:', getPlan());
+              }}
+            >
               Help
             </Button>
           </div>

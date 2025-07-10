@@ -12,9 +12,8 @@ import { useCallback, useState } from 'react';
 // import { useServerGame } from '../../hooks/serverGame';
 import ReactModal from 'react-modal';
 // 替换原有导入
-import { getPlan, setPlan } from '../../utils/show_plan';
-import { plan_used } from '../../../data/characters';
-const plan_now = getPlan();
+import { usePlanState } from '../../utils/show_plan';
+import { useTeachingPlan } from '../../../data/TeachingPlanProvider';
 
 // 在组件外部定义模态框样式
 const warningModalStyle = {
@@ -34,9 +33,11 @@ const warningModalStyle = {
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
   },
 };
-export function ResetButton() {
-  const resetPlan = plan_used;
 
+// TODO reset无效，set缺少数据
+export function ResetButton() {
+  const resetPlan = useTeachingPlan();
+  const { getPlan, setPlan } = usePlanState();
   const handleReset = async () => {
     try {
       setPlan(resetPlan);
@@ -45,7 +46,6 @@ export function ResetButton() {
       toast.error('reset failed');
     }
   };
-
   return (
     <Button imgUrl={resetImg} onClick={handleReset} title="reset and show the plan used now">
       Reset
@@ -60,6 +60,7 @@ export function SetButton() {
   // const wipeData = useAction(api.testing.clearTable);
   const uploadPlan = useMutation(api.plans.addPlan);
   const unfreeze = useMutation(api.testing.resume);
+  const { getPlan, setPlan } = usePlanState();
 
   const handleConfirm = async () => {
     try {
@@ -70,7 +71,8 @@ export function SetButton() {
       // await wipeData();
 
       // 上传新教案
-      await uploadPlan({
+      const plan_now = getPlan();
+      uploadPlan({
         content: plan_now,
       });
       await unfreeze();

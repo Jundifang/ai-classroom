@@ -2,7 +2,7 @@
 npx convex export --path ./back/.zip
 
 # 导入模拟数据，加--replace强制替换
-npx convex import ./back/.zip
+npx convex import ./back/empty_plan.zip --replace -y
 
 # Import single table from jsonl/csv
 npx convex import --table <table name> data.jsonl
